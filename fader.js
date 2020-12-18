@@ -22,9 +22,11 @@ const startDraw = function(canvas,x, y) {
    
 }
 const setUpCanvas = function (canvas) {
-    const bodyTag = document.querySelector("body")
-    const w = window.innerWidth
-    const h= bodyTag.offsetHeight
+    const sectionTag = document.querySelector('#section-1')
+    const w = sectionTag.offsetWidth
+    const h= sectionTag.offsetHeight
+    console.log(h)
+    console.log(w)
     const dpi = window.devicePixelRatio
 
     canvas.width = w * dpi
@@ -34,11 +36,13 @@ const setUpCanvas = function (canvas) {
 
     const context = canvas.getContext("2d")
     context.scale(dpi,dpi)
-    context.fillStyle = "red"
-    context.strokeStyle = "red"
+    context.fillStyle = "#000000"
+    context.strokeStyle = "#ffffff"
     context.lineWidth = 80
     context.lineCap = "round"
     context.lineJoin = "round"
+    context.rect(0,0,w,h)
+    context.fill()
 }
  const moveDraw = function (canvas, x, y) {
      const context = canvas.getContext("2d")
